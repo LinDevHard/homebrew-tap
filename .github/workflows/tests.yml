@@ -1,0 +1,24 @@
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-bot:
+    runs-on: macos-latest
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Cache Homebrew Bundler RubyGems
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/Library/Homebrew/vendor/bundle
+          key: ${{ runner.os }}-rubygems-${{ hashFiles('Library/Homebrew/Gemfile') }}
+          restore-keys: ${{ runner.os }}-rubygems-
+
+      - name: Run brew test-bot
+        run: brew test-bot --only-tap-syntax
