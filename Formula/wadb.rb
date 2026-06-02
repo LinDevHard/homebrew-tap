@@ -8,7 +8,13 @@ class Wadb < Formula
   head "https://github.com/LinDevHard/wadb.git", branch: "main"
 
   depends_on "go" => :build
-  depends_on "android-platform-tools"
+
+  def caveats
+    <<~EOS
+      wadb requires `adb` on your PATH. Install Android platform tools with:
+        brew install --cask android-platform-tools
+    EOS
+  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "."
