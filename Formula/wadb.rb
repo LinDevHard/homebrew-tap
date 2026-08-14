@@ -1,7 +1,7 @@
 class Wadb < Formula
   desc "Pair Android devices over ADB Wi-Fi using a terminal QR code"
   homepage "https://github.com/LinDevHard/wadb"
-  version "1.0.0"
+  version "1.1.0"
   license "MIT"
 
   livecheck do
@@ -11,31 +11,35 @@ class Wadb < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/LinDevHard/wadb/releases/download/v1.0.0/wadb-1.0.0-darwin-arm64.tar.gz"
-      sha256 "4076bbd6fa0e04e362035db903ac460d29e7ff07046025cca301e3003f836186"
+      url "https://github.com/LinDevHard/wadb/releases/download/v1.1.0/wadb-1.1.0-darwin-arm64.tar.gz"
+      sha256 "40d3999d9e1212a3bbd755273d75270666802e16caca9070f037fbc1835f66d7"
     end
 
     on_intel do
-      url "https://github.com/LinDevHard/wadb/releases/download/v1.0.0/wadb-1.0.0-darwin-amd64.tar.gz"
-      sha256 "49efc19d68705270cab0a56fb56097aedc973b6dfd8fc4497faefefd18bd3573"
+      url "https://github.com/LinDevHard/wadb/releases/download/v1.1.0/wadb-1.1.0-darwin-amd64.tar.gz"
+      sha256 "628af518810b65c867cbb8f9f4ed7fa4c066d635c513e89c9657f51fb046ae0b"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/LinDevHard/wadb/releases/download/v1.0.0/wadb-1.0.0-linux-arm64.tar.gz"
-      sha256 "743f298cd458164d6e7dfca2e97cd04b946134cbb4d7737ce51fa070d79bbcef"
+      url "https://github.com/LinDevHard/wadb/releases/download/v1.1.0/wadb-1.1.0-linux-arm64.tar.gz"
+      sha256 "1075044b94da87097e2cf8eb83cb9aaade8ce5d109c5323f0c77715de3b0ccdb"
     end
 
     on_intel do
-      url "https://github.com/LinDevHard/wadb/releases/download/v1.0.0/wadb-1.0.0-linux-amd64.tar.gz"
-      sha256 "4b9387c11f2c37a9868d4cd13dd7564391d5856480644625803838af1865f744"
+      url "https://github.com/LinDevHard/wadb/releases/download/v1.1.0/wadb-1.1.0-linux-amd64.tar.gz"
+      sha256 "387412dd2ee3287e32047fbff916fec9decc283852b4781c5d914616195a2d80"
     end
   end
 
   def install
     bin.install "wadb"
     doc.install "README.md"
+    man1.install "man/wadb.1"
+    bash_completion.install "completions/wadb.bash" => "wadb"
+    zsh_completion.install "completions/wadb.zsh" => "_wadb"
+    fish_completion.install "completions/wadb.fish" => "wadb.fish"
   end
 
   def caveats
@@ -47,7 +51,7 @@ class Wadb < Formula
   end
 
   test do
-    assert_match "v#{version}", shell_output("#{bin}/wadb --version")
+    assert_match version.to_s, shell_output("#{bin}/wadb --version")
     assert_match "pair Android devices", shell_output("#{bin}/wadb --help 2>&1")
   end
 end
