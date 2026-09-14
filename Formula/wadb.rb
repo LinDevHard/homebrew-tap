@@ -10,25 +10,25 @@ class Wadb < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/LinDevHard/wadb/releases/download/v1.1.1/wadb-darwin-arm64-1.1.1.tar.gz"
-      sha256 "0b46addda27536643b7dc8926945aa5c5f654de7219d9564a8d69a69afa1160a"
+      url "https://github.com/LinDevHard/wadb/releases/download/v1.2.0/wadb-darwin-arm64-1.2.0.tar.gz"
+      sha256 "1c9b717fc5428258ce1855ebe8fcc7aee9c10ec9e029507eb529d9263d7db59f"
     end
 
     on_intel do
-      url "https://github.com/LinDevHard/wadb/releases/download/v1.1.1/wadb-darwin-amd64-1.1.1.tar.gz"
-      sha256 "aa69a50b5baf50d5dfaa1e185c24b62571f5f7f59a8244cc02bd60ae8da81ce3"
+      url "https://github.com/LinDevHard/wadb/releases/download/v1.2.0/wadb-darwin-amd64-1.2.0.tar.gz"
+      sha256 "ec91b11275ba641100bac043e1539dfc4c13403a8f1e015958925d2c4662e476"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/LinDevHard/wadb/releases/download/v1.1.1/wadb-linux-arm64-1.1.1.tar.gz"
-      sha256 "4e8928bf8dad78e807f337f113606bb6c2d6e373e24114513d2d5ebe23f0bd3e"
+      url "https://github.com/LinDevHard/wadb/releases/download/v1.2.0/wadb-linux-arm64-1.2.0.tar.gz"
+      sha256 "62410f71aa529fb85667e39e7fdabb210bc8143b42065eae0ba0cb71159b901b"
     end
 
     on_intel do
-      url "https://github.com/LinDevHard/wadb/releases/download/v1.1.1/wadb-linux-amd64-1.1.1.tar.gz"
-      sha256 "45adf7c9a1e85dd849bdb095110a29b4cdb0d6fe1a0f0a0e9893aae1d0ad45a5"
+      url "https://github.com/LinDevHard/wadb/releases/download/v1.2.0/wadb-linux-amd64-1.2.0.tar.gz"
+      sha256 "b07373de20c7a0e5615ddae2f8c58f1c5609689562d73c2fb6ae79d861d9505e"
     end
   end
 
